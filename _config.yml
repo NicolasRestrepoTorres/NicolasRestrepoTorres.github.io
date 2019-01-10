@@ -1,8 +1,8 @@
 # Site settings
 title: 'Profile'
 description: 'B.Sc. Systems and Computer Engineering student'
-url: 'http://joshgerdes.com/jekyll-uno'
-baseurl: '/jekyll-uno'
+url: 'https://nicolasrestrepotorres.github.io'
+baseurl: ''
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 

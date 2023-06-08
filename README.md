@@ -1,45 +1,50 @@
-# jekyll-uno
+# neva-portfolio-template
 
-Jekyll-Uno - a minimal, responsive theme for Jekyll based on the [Uno](https://github.com/daleanthony/Uno) theme for Ghost.
+link to docs [aabidsofi.com/docs/neva-portfolio-vue](aabidsofi.com/docs/neva-portfolio-vue)
 
-> :warning:
-  This theme requires ruby and rubygems installed
 
-### Features
+live preview at [https://neva-portfolio-vue.netlify.app/](https://neva-portfolio-vue.netlify.app/)
 
-* Clean layout
-* Resposive layout
-* Pagination
-* Syntax highlighting
-* Social links
-* Tags listing page
-* Categories listing page
-* Google Analytics integration
-* Disqus integration
+##### Neva vue is a minimal and open-source template for portfolios. 
 
----
+<br/>
 
-### Install and Test
 
-1. Download or clone repo `git clone git@github.com:joshgerdes/jekyll-uno.git`
-2. Enter the folder: `cd jekyll-uno/`
-3. If you don't have bundler installed: `gem install bundler`
-3. Install Ruby gems: `bundle install`
-4. Start Jekyll server: `bundle exec jekyll serve --watch`
+![neva vue screenshot](https://res.cloudinary.com/dh3azc5sk/image/upload/v1632678783/templates/neva-vue/mockup-small_zgwpwl.png)
 
-Access via: [http://localhost:4000/jekyll-uno/](http://localhost:4000/jekyll-uno/)
+``` Fully Responsive on Mobile  Devices ```
+<br/>
 
----
+#### The template has been crafted with love using Vuejs, Vuex, and Vuetify.  
 
-### Demo and Download
+The template follows a component-based design so, is easy to customize for both developers and people not familiar with code.
 
-[Demo](http://joshgerdes.com/jekyll-uno/)
-[Download](https://github.com/joshgerdes/jekyll-uno/archive/master.zip)
+The template has been specially crafted to be simple to customize for people not familiar with code.
 
-![jekyll-uno - free Jekyll theme](/screenshot.png)
 
----
+The installation process is pretty simple and won't take more than 10 minutes. So let's begin.
 
-### Copyright and license
 
-It is under [the MIT license](/LICENSE).
+Hav'nt installed the template yet,clone the  [repo](https://github.com/aabidsofi19/neva-portfolio-template)  now.
+
+
+The template has been licensed under the  MIT license. Which means you are not bound for any type of credit. But surely giving one in your footer will be helpful and appreciated a lot.
+
+
+
+
+Star the repo on Github and follow me. It means a lot ❤️.
+
+
+
+## License
+
+License MIT License Copyright (c) 2021 Aabid Sofi
+
+Coded by  Aabid Sofi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

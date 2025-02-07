@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import data from "../../data/data.json";
+import data from "../../data/data.js";
 
 export default {
   name: "Arrow",

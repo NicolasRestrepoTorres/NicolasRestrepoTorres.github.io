@@ -10,6 +10,9 @@ import veciLogo from "@/assets/images/logos/veci-logo.webp";
 import empresasCruzLogo from "@/assets/images/logos/empresas-cruz-logo.jpeg";
 import edissLogo from "@/assets/images/logos/ediss-logo.png";
 
+import logos from "@/data/logos.js"; // Import dynamically loaded logos
+
+
 
 export default {
     
@@ -27,13 +30,13 @@ export default {
       ],
       logo: aboAkademiLogo,
       year: "2024",
-      skills: ["Data Science", "Research"],
-      type: "Data Science",
+      skills: ["MATLAB", "Simulink", "Simscape", "Research"],
+      type: "Research",
     },
     {
       company: "Alstom",
       position: "Master's Thesis Student",
-      location: "Remote",
+      location: "Västerås, Sweden",
       locationCountry: "se",
       startDate: "February 2024",
       endDate: "October 2024",
@@ -43,13 +46,13 @@ export default {
       ],
       logo: alstomLogo,
       year: "2024",
-      skills: ["Requirements Engineering", "AI", "Research"],
+      skills: ["Requirements Engineering", "Natural Language Processing", "Safety-Critical systems", "Research", "Large Language Models (LLM)"],
       type: "Research",
     },
     {
       company: "RISE - Research Institute of Sweden",
       position: "Machine Learning Intern",
-      location: "Remote",
+      location: "Västerås, Sweden",
       locationCountry: "se",
       startDate: "July 2023",
       endDate: "August 2023",
@@ -59,8 +62,8 @@ export default {
       ],
       logo: riseLogo,
       year: "2023",
-      skills: ["Machine Learning", "Data Processing", "Research"],
-      type: "Data Science",
+      skills: ["Natural Language Processing", "Large Language Models (LLM)", "Machine Learning", "Data Processing", "Data Pipelines", "Research"],
+      type: "Data Science and Research",
     },
     {
       company: "Empresas Cruz",
@@ -76,8 +79,8 @@ export default {
       ],
       logo: empresasCruzLogo,
       year: "2022",
-      skills: ["Architecture", "AWS", "Scrum"],
-      type: "Software Engineering",
+      skills: ["Leadership", "Amazon Web Services (AWS)", "Cognito", "Lambda", "Serveless Aplication Model (SAM)", "Scrum"],
+      type: "Software Engineering and Infrastructure",
     },
     {
       company: "PuntoRed - Veci",
@@ -92,7 +95,7 @@ export default {
       ],
       logo: veciLogo,
       year: "2022",
-      skills: ["FinTech", "Backend Development"],
+      skills: ["Leadership",  "Full-stack development", "Banking", "Microservices Architecture (mSOA)", "MySQL"],
       type: "Software Engineering",
     },
     {
@@ -109,7 +112,7 @@ export default {
       ],
       logo: puntoredLogo,
       year: "2021",
-      skills: ["Ruby on Rails", "Nuxt.js", "CI/CD"],
+      skills: ["Ruby on Rails", "Nuxt.js", "Test Driven Development (TDD)",  "Rest API", "Software Architecture"],
       type: "Software Engineering",
     },
     {
@@ -136,12 +139,13 @@ export default {
       startDate: "February 2020",
       endDate: "June 2020",
       tasks: [
+        "Implemented the full pipeline for a problem to be solved by an automatic judge Codeforces-like.",
         "Led practical sessions for a programming course, teaching problem-solving using Codeforces-like exercises.",
         "Conducted lectures and solved student queries using Piazza.",
       ],
       logo: nacionalLogo,
       year: "2020",
-      skills: ["Teaching", "Programming"],
+      skills: ["Teaching", "Programming", "Problem Solving"],
       type: "Education",
     },
     {
@@ -153,11 +157,11 @@ export default {
       endDate: "September 2019",
       tasks: [
         "Improved IAM requests and knowledge management for a system involving 50,000+ employees.",
-        "Implemented Jenkins for CI/CD deployment in Kubernetes (OpenShift).",
+        "Implemented Jenkins for CI/CD deployment in OpenShift.",
       ],
       logo: airbusLogo,
       year: "2019",
-      skills: ["DevOps", "Kubernetes", "Jenkins"],
+      skills: ["DevOps", "OpenShift", "Jenkins"],
       type: "DevOps",
     },
     {
@@ -225,7 +229,7 @@ export default {
           "Implemented the preprocessing, data analysis, and a data-intensive model using a randomized grid search approach with ARIMA, MLP, and LSTM models as comparison points to develop a CNN-LSTM and other model architectures.",
           "The data warehouse was stored in MongoDB and processed using QGIS and Python libraries (i.e., GeoPandas).",
         ],
-        skills: ["Deep Learning", "Forecasting", "Data Processing"],
+        skills: ["Long Short Term Memory (LSTM)", "Convolutional Neural Networks (CNN)", "Deep Learning", "Forecasting", "Data Processing"],
         type: "Bachelor Thesis",
       },
       {
@@ -242,7 +246,7 @@ export default {
           "Designed grammar for the DSL, which was developed using ANTLR4.",
           "Contributed to the development using IONIC.",
         ],
-        skills: ["DSL Design", "ANTLR4", "Ionic"],
+        skills: ["Domain Specific Language (DSL) Design", "ANTLR4", "Ionic"],
         type: "Web Development",
       },
       {
@@ -319,76 +323,155 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
             { "name": "Highest GPA", "value": "5.0 / 5.0" }
           ]
         },
-      "skills": {
-          "defaultCategory": "All Skills",
-          "categories": [
+        skills: {
+          defaultCategory: "All Skills",
+          categories: [
             {
-              "category": "Programming Languages",
-              "subtitle": "Experienced in various languages",
-              "faClass": "fas fa-code",
-              "skillList": [
-                { "name": "Python", "years": 4.5 },
-                { "name": "Ruby on Rails", "years": 3.8 },
-                { "name": "Java", "years": 4 },
-                { "name": "JavaScript", "years": 4.2 }
+              category: "Programming Languages",
+              subtitle: "Multi-paradigm programming languages",
+              faClass: "fas fa-code",
+              skillList: [
+                { name: "Python", years: 4.5, logo: logos["python-logo"] },
+                { name: "Ruby", years: 3, logo: logos["ruby-logo"] },
+                { name: "JavaScript", years: 3.5, logo: logos["node-js-logo"] },
+                { name: "Java", years: 1, logo: logos["java-logo"] },
+                { name: "C/C++", years: 1, logo: logos["cpp-logo"] },
+                { name: "Haskell", years: 1, logo: logos["haskell-logo"] },
+                { name: "MATLAB", years: 1, logo: logos["matlab-logo"] },
+               
               ]
             },
             {
-              "category": "Frameworks",
-              "subtitle": "Skilled in frameworks and libraries",
-              "faClass": "fas fa-layer-group",
-              "skillList": [
-                { "name": "React.js", "years": 3 },
-                { "name": "Vue.js", "years": 2.5 },
-                { "name": "Django", "years": 3.5 },
-                { "name": "Spring Boot", "years": 2 },
-                { "name": "Springx Boot", "years": 2 }
-              ]
-            },
-            
-            {
-              "category": "Technologies",
-              "subtitle": "Proficient in tools and platforms",
-              "faClass": "fas fa-tools",
-              "skillList": [
-                { "name": "Docker", "years": 3.5 },
-                { "name": "AWS (Amplify, Cognito)", "years": 3 },
-                { "name": "MongoDB", "years": 4 },
-                { "name": "Kubernetes", "years": 2.5 }
+              category: "Frameworks",
+              subtitle: "Frameworks used along programming languages",
+              faClass: "fas fa-layer-group",
+              maxYearsToShow: 3,
+              skillList: [
+                { name: "Ruby on Rails", years: 3, logo: logos["ruby-on-rails-logo"] },
+                { name: "Vue.js", years: 3, logo: logos["vue-logo"] },
+                { name: "Django (Python)", years: 3, logo: logos["django-logo"] },
+                { name: "Nuxt.js", years: 3, logo: logos["nuxt-logo"] },
+                { name: "React.js", years: 1, logo: logos["react-logo"] },
+                { name: "React Native", years: 1, logo: logos["react-logo"] },
+                { name: "Code Igniter", years: 1, logo: logos["code-igniter-logo"] },
               ]
             },
             {
-              "category": "Front-End",
-              "subtitle": "UI and UX development",
-              "faClass": "fas fa-paint-brush",
-              "maxYearsToShow": 55,
-              "skillList": [
-                { "name": "HTML/CSS", "years": 5 },
-                { "name": "Sass", "years": 4 },
-                { "name": "Tailwind CSS", "years": 2.5 },
-                { "name": "Bootstrap", "years": 4.5 }
+              category: "Technologies",
+              subtitle: "Proficient in tools and platforms",
+              faClass: "fas fa-tools",
+              maxYearsToShow: 4,
+              skillList: [
+                { name: "Docker", years: 4, logo: logos["docker-logo"] },
+                { name: "Heroku", years: 2, logo: logos["heroku-logo"] },
+                { name: "Rancher", years: 1, logo: logos["rancher-logo"] },
+                { name: "AWS (Amplify, Cognito)", years: 1, logo: logos["aws-logo"] },
+                { name: "Serverless Application Model", years: 1, logo: logos["aws-sam-logo"] },
+                { name: "Openshift", years: 1, logo: logos["openshift-logo"] },
+                { name: "ANTLR4", years: 1, logo: logos["antlr4-logo"] },
               ]
             },
             {
-              "category": "Back-End",
-              "subtitle": "Server-side and API development",
-              "faClass": "fas fa-server",
-              "skillList": [
-                { "name": "Node.js", "years": 3.5 },
-                { "name": "Express.js", "years": 3 },
-                { "name": "GraphQL", "years": 2.5 },
-                { "name": "SQL (MySQL, PostgreSQL)", "years": 4 }
+              category: "Databases",
+              subtitle: "Experience in SQL & NoSQL databases",
+              maxYearsToShow: 4,
+              faClass: "fas fa-database",
+              skillList: [
+                { name: "MongoDB", years: 4, logo: logos["mongo-db-logo"] },
+                { name: "MySQL", years: 3, logo: logos["mysql-logo"] },
+                { name: "PostgreSQL", years: 3.5, logo: logos["postgresql-logo"] },
+
               ]
             },
             {
-              "category": "Methodologies",
-              "subtitle": "How I work",
-              "faClass": "fas fa-project-diagram",
-              "skillList": [
-                { "name": "Agile/Scrum", "years": 4 },
-                { "name": "Test-Driven Development", "years": 3.5 },
-                { "name": "CI/CD", "years": 4 },
-                { "name": "DevOps Practices", "years": 3, "logo": "logo" }
+              category: "Front-End",
+              subtitle: "UI and UX development",
+              faClass: "fas fa-paint-brush",
+              maxYearsToShow: 4,
+              skillList: [
+                { name: "HTML", years: 4, logo: logos["html-logo"] },
+                { name: "CSS", years: 4, logo: logos["css-logo"] },
+                { name: "Bootstrap", years: 4, logo: logos["bootstrap-logo"] },
+                { name: "Figma", years: 2, logo: logos["figma-logo"] },
+                { name: "Sass", years: 2, logo: logos["sass-logo"] },
+                { name: "Tailwind CSS", years: 2, logo: logos["css-logo"] },
+              ]
+            },
+            {
+              category: "Back-End",
+              subtitle: "Server-side and API development",
+              faClass: "fas fa-server",
+              skillList: [
+                { name: "REST APIs", years: 5, logo: logos["rest-api-logo"] },
+                { name: "Microservices (mSOA)", years: 3, logo: logos["microservices-logo"] },
+                { name: "GraphQL", years: 3, logo: logos["graphql-logo"] },
+                { name: "Node.js", years: 3, logo: logos["node-js-logo"] },
+                { name: "Express.js", years: 2, logo: logos["node-js-logo"] },
+              ]
+            },
+            {
+              category: "Data Science - AI",
+              subtitle: "AI, NLP, and ML expertise",
+              faClass: "fas fa-brain",
+              maxYearsToShow: 2,
+              skillList: [
+                { name: "Deep Learning", years: 2, logo: logos["ai-logo"] },
+                { name: "Natural Language Processing (NLP)", years: 2, logo: logos["nlp-logo"] },
+                { name: "Large Language Models (LLM)", years: 2, logo: logos["llm-logo"] },
+                { name: "Metabase (GNU-like tableau)", years: 2, logo: logos["metabase-logo"] },
+                { name: "Amazon EMR", years: 1, logo: logos["amazon-emr-logo"] },
+                { name: "Pandas", years: 2, logo: logos["pandas-logo"] },
+              ]
+            },
+            {
+              category: "DevOps & CI/CD",
+              subtitle: "Building, deploying, and automation",
+              faClass: "fas fa-cogs",
+              maxYearsToShow: 2,
+              skillList: [
+                { name: "Jenkins", years: 2, logo: logos["jenkins-logo"] },
+                { name: "CI/CD", years: 1, logo: logos["jenkins-logo"] }
+              ]
+            },
+            {
+              category: "Methodologies",
+              subtitle: "How I work",
+              faClass: "fas fa-project-diagram",
+              maxYearsToShow: 4,
+              skillList: [
+                { name: "Agile/Scrum", years: 4, logo: logos["scrum-logo"] },
+                { name: "Test-Driven Development", years: 3, logo: logos["tdd-logo"] }
+              ]
+            },
+            {
+              category: "Operating Systems",
+              subtitle: "Comfortable with multiple OS",
+              faClass: "fas fa-laptop",
+              skillList: [
+                { name: "Linux", years: 5, logo: logos["linux-logo"] },
+                { name: "Windows", years: 3, logo: logos["windows-logo"] }
+              ]
+            },
+
+            {
+              category: "Research & Tools",
+              subtitle: "Academic tools and citations",
+              faClass: "fas fa-flask",
+              maxYearsToShow: 3,
+              skillList: [
+                { name: "Mendeley", years: 3, logo: logos["mendeley-logo"] },
+                { name: "LaTeX", years: 3, logo: logos["latex-logo"] }
+              ]
+            },
+            {
+              category: "Version Control",
+              subtitle: "Tools for tracking and collaboration",
+              faClass: "fas fa-code-branch",
+              skillList: [
+                { name: "Git", years: 5, logo: logos["git-logo"] },
+                { name: "GitHub", years: 5, logo: logos["github-logo"] },
+                { name: "Jira", years: 4, logo: logos["jira-logo"] },
+                { name: "Bitbucket", years: 3, logo: logos["bitbucket-logo"] }
               ]
             }
           ]
@@ -402,7 +485,7 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
                 "items": [
                   { "title": "Spanish", "description": "Native", "second_description": "Proficient", "flag": "co" },
                   { "title": "English", "description": "C1 – TOEFL: 104/120", "second_description": "Fluent", "flag": "gb"  },
-                  { "title": "German", "description": "B2 – TestDaF 4/5", "second_description": "Conversational", "flag": "at"  },
+                  { "title": "German", "description": "B2 – TestDaF 4/5", "second_description": "Conversational", "flag": "de"},
                   { "title": "Italian", "description": "Intermediate", "second_description": "" , "flag": "it" },
                   { "title": "Finnish", "description": "Beginner", "second_description": "", "flag": "fi"  }
                 ]
@@ -414,20 +497,31 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
                   {
                     "title": "KOSPIE DAAD Scholarship",
                     "description": "Full scholarship for one year in Germany funded by DAAD (worth 11,000 USD)",
-                    "image": "daad.png",
-                    "source": "google.com",
-                    "link": "https://www.albumoftheyear.org/"
-                  },
-                  {
-                    "title": "Scholarship Best GPAs",
-                    "description": "Scholarship for taking courses in German and Italian (worth 450 USD)",
-                    "image": "gpa.png"
+                    "image": logos["daad-logo"],
+                    "source": "https://www.daad.de/en/information-services-for-higher-education-institutions/further-information-on-daad-programmes/kospie/",
+                    "link": "https://www.daad.de/en/information-services-for-higher-education-institutions/further-information-on-daad-programmes/kospie/"
                   },
                   {
                     "title": "EMJMD Scholarship",
                     "description": "Accepted as one of 23 students for a joint master's degree funded by the EU (worth 49,000 USD)",
-                    "image": "emjmd.png"
-                  }
+                    "image": logos["erasmus-mundus-logo"],
+                    "source": "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters",
+                    "link": "https://www.master-ediss.eu/index.php/admission-results/",
+                  },
+                  {
+                    "title": "Scholarship Best GPAs",
+                    "description": "Scholarship for taking courses in German and Italian (worth 450 USD)",
+                    "image": logos["un-alt-2-logo"],
+                    "source": "https://ingenieria.bogota.unal.edu.co/pri/index.php/home/ing-internacional/ing-internacional-pmp",
+                    "link": "https://ingenieria.bogota.unal.edu.co/pri/index.php/home/ing-internacional/ing-internacional-pmp"
+                  },
+                  {
+                    "title": "Talent Incubator Group (PST)",
+                    "description": "Selected for COLFUTURO’s Talent Incubator Program (PST), providing top Colombian students and graduates with personalized support for securing admission and funding for graduate studies at leading global universities.",
+                    "image": logos["colfuturo-logo"],
+                    "source": "https://www.colfuturo.org/for-international-universities/talent-incubator-group",
+                    "link": "https://www.colfuturo.org/for-international-universities/talent-incubator-group"
+                  },
                 ]
               },
               {
@@ -436,29 +530,27 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
                 "items": [
                   {
                     "title": "Music Reviews",
-                    "description": "Read my reviews on AOTY",
-                    "image": aboAkademiLogo,
-                    "link": "https://www.albumoftheyear.org/user/saccord/"
-                  },
-                  {
-                    "title": "Badminton",
-                    "description": "I enjoy playing Badminton in my free time.",
-                    "image": "badminton.png"
-                  },
-                  {
-                    "title": "Dancing",
-                    "description": "I practice Salsa and Bachata.",
-                    "image": "dancing.png"
+                    "description": "I engage in extensive writing for the music I enjoy, you can read some of them in Album Of The Year website",
+                    "image": logos["aoty-logo"],
+                    "link": "https://www.albumoftheyear.org/user/saccord/",
+                    "source": "https://www.albumoftheyear.org/album/385275-magdalena-bay-mercurial-world.php"
                   },
                   {
                     "title": "PLaS Research Group",
                     "description": "Participated in the Programming Languages and Systems (PLaS) research group.",
-                    "image": "plas.png"
+                    "image": logos["un-alt-logo"],
+                    "link": "https://plas.unal.edu.co/"
+                  },
+                  {
+                    "title": "Badminton",
+                    "description": "I enjoy playing Badminton in my free time.",
+                    "image": logos["badminton-logo"]
                   },
                   {
                     "title": "Competitive Programming",
-                    "description": "Codeforces, HackerEarth (Handle: Saccord).",
-                    "image": "coding.png"
+                    "description": "Codeforces, HackerEarth",
+                    "image": logos["codeforces-logo"]
+
                   }
                 ]
               }
@@ -493,7 +585,7 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
       },
 
     educationContent: {
-      isEducationVisible: false,
+      isEducationVisible: true,
         filterMode: "all", // 'all', 'master', 'bachelor', 'exchange'
         gpaSystem: "European (1-5)", // Current GPA system displayed
         scaleVisible: false, // Toggle for displaying scale table
@@ -519,13 +611,13 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
         education: [
           {
             institution: "EDISS",
-            degree: "M.Sc. Erasmus Mundus Joint Master Degree Programme on the Engineering of Data-intensive Intelligent Software Systems",
-            startDate: "August 2023",
-            endDate: "January 2025",
+            degree: "M.Sc. Erasmus Mundus Joint Master Degree Programme on the Engineering of Data-intensive Intelligent Software Systems.",
+            startDate: "August 2022",
+            endDate: "February 2025",
             description:
-              "Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems.",
-            skills: ["Analytical Skills", "Industrial Research", "Deep Learning"],
-            courses: ["Big Data Analysis", "AI in Industry", "Distributed Systems"],
+              "Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems. (120 ECTS)",
+            skills: ["Analytical Skills", "Industrial Research", "Natural Language Processing"],
+            courses: ["Thesis", "Data Intensive Engineering", "Internship: RISE"],
             logo: edissLogo,
             type: "master",
             countryFlag: "fi",
@@ -535,11 +627,11 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
             institution: "Mälardalen University",
             degree: "M.Sc. Master's degree, Industrial Software Engineering",
             startDate: "August 2023",
-            endDate: "October 2024",
+            endDate: "February 2025",
             description:
-              "Second year of Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems.",
-            skills: ["Analytical Skills", "Industrial Research", "Deep Learning"],
-            courses: ["Big Data Analysis", "AI in Industry", "Distributed Systems"],
+              "Second year of Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems.(60 ECTS)",
+            skills: ["Analytical Skills", "Industrial Research", "Security"],
+            courses: ["Web Security", "Software Verification and Validation", "Research Methods in Computer Science"],
             logo: malardalensLogo,
             type: "master",
             countryFlag: "se",
@@ -549,43 +641,43 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
             institution: "Åbo Akademi University",
             degree: "M.Sc. Master of Science, Data Science",
             startDate: "August 2022",
-            endDate: "July 2024",
+            endDate: "August 2023",
             description:
-              "First year of Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems.",
-            skills: ["Cloud Computing", "Machine Learning", "Data Science"],
-            courses: ["Cloud Infrastructure", "Machine Learning Techniques", "Statistics"],
+              "First year of Erasmus Mundus Joint Masters Degree Engineering of Data-Intensive Intelligent Software Systems. (60 ECTS)",
+            skills: ["Data Science", "Machine Learning Techniques", "Machine Learning", "Statistics"],
+            courses: ["Cloud Computing", "Embedded AI", "System Architecture of IoT", "Artificial Intelligence"],
             logo: aboAkademiLogo,
             type: "master",
             countryFlag: "fi",
             gpa: { current: 5.0, max: 5.0, min: 0.0, scale: "European (1-5)" }
           },
           {
-            institution: "Universidad Nacional de Colombia",
-            degree: "B.Sc. Ingeniería de Sistemas y Computación, Computer and Systems Engineer",
-            startDate: "2014",
-            endDate: "2020",
+            institution: "Universidad Nacional de Colombia (National University of Colombia)",
+            degree: "B.Sc. Ingeniería de Sistemas y Computación (Computer and Systems Engineer)",
+            startDate: "August 2014",
+            endDate: "October 2020",
             description:
-              "Activities and societies: Software Architecture, Algorithms, and Intelligent Systems.",
-            skills: ["Programming", "Algorithms", "Software Engineering"],
-            courses: ["Algorithm Design", "Operating Systems", "Databases"],
+              "Bachelor in Computer Science. 203 colombian credits (approximately 460 ECTS)",
+            skills: ["Software Engineerin", "Algorithm Design", "Systems Thinking"],
+            courses: ["Software Architecture" , "Operating Systems", "Algorithms", "Machine Learning"],
             logo: nacionalLogo,
             type: "bachelor",
             countryFlag: "co",
             gpa: { current: 4.4, max: 5.0, min: 0.0, scale: "European (1-5)" }
           },
           {
-            institution: "Hamburg University of Technology",
+            institution: "Hamburg University of Technology (TUHH)",
             degree: "Informatiker, Computational Science and Engineering",
-            startDate: "2018",
-            endDate: "2019",
+            startDate: "October 2018",
+            endDate: "June 2019",
             description:
-              "Exchange student under DAAD scholarship. Activities and societies: Functional Programming, Robotics.",
-            skills: ["Functional Programming", "Cognitive Robotics"],
-            courses: ["Robotics", "Functional Programming", "AI Fundamentals"],
+              "Exchange student under DAAD scholarship.",
+            skills: ["Information Security", "Cognitive Robotics", "Functional Programming"],
+            courses: ["Intelligent Autonomous Agents and Cognitive Robotics", "Functional Programming", "Introduction to Information Security"],
             logo: tuhhLogo,
             type: "exchange",
             countryFlag: "de",
-            gpa: { current: 1.7, max: 1.0, min: 6.0, scale: "German" }
+            gpa: { current: 2.0, max: 1.0, min: 6.0, scale: "German" }
           },
         ],
       }

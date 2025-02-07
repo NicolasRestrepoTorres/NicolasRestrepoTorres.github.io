@@ -103,11 +103,7 @@
     </div>
 
 
-    <div class="row arrow-container">
-      <a class="arrow-icon" href="#">
-        <i class="fas fa-chevron-up fa-4x"></i>
-      </a>
-    </div>
+
     
   </section>
   
@@ -135,7 +131,7 @@ export default {
   },
   data() {
     return {
-      viewMode: "hide",
+      viewMode: "all",
       searchQuery: "",
       selectedYear: new Date().getFullYear().toString(),
     };
@@ -164,12 +160,17 @@ export default {
     // Group experiences by year for the "By Year" tab
     experiencesByYear() {
       if (!this.experiences) return {};
-      return this.experiences.reduce((acc, exp) => {
-        if (!acc[exp.year]) acc[exp.year] = [];
-        acc[exp.year].push(exp);
-        return acc;
-      }, {});
+      return Object.fromEntries(
+        Object.entries(
+          this.experiences.reduce((acc, exp) => {
+            if (!acc[exp.year]) acc[exp.year] = [];
+            acc[exp.year].push(exp);
+            return acc;
+          }, {})
+        ).sort(([yearA], [yearB]) => yearB - yearA) // Sort years in descending order
+      );
     },
+
 
     // Sort experiences chronologically for the "All" tab
     sortedChronology() {

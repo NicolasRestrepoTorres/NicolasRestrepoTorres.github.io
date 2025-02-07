@@ -4,42 +4,30 @@
       <h1 class="section-header skills-margin-top">{{ heading }}</h1>
       <p class="hover-instruction">Click in the colors or sections to filter skills!</p>
 
-      <button @click="areSkillsVisible = !areSkillsVisible" class="toggle-button" >
-  {{ areSkillsVisible ? "Hide Skills" : "Show Skills" }}
-</button>
+      <button @click="areSkillsVisible = !areSkillsVisible" class="toggle-button">
+        {{ areSkillsVisible ? "Hide Skills" : "Show Skills" }}
+      </button>
 
       <!-- Filters -->
       <div class="row filters" v-if="areSkillsVisible">
         <ul class="list-inline mx-auto">
-          <!-- All Skills Tab -->
           <li class="list-inline-item filter">
-            <a
-              class="nav-item"
-              :class="{ active: currentCategory === 'All Skills' }"
-              @click="setCategory('All Skills')"
-            >
+            <a class="nav-item" :class="{ active: currentCategory === 'All Skills' }"
+               @click="setCategory('All Skills')">
               All Skills
             </a>
           </li>
-          <li
-            v-for="item in skills"
-            :key="item.category"
-            class="list-inline-item filter"
-          >
-            <a
-              class="nav-item"
-              :class="{ active: item.category === currentCategory }"
-              @click="setCategory(item.category)"
-            >
+          <li v-for="item in skills" :key="item.category" class="list-inline-item filter">
+            <a class="nav-item" :class="{ active: item.category === currentCategory }"
+               @click="setCategory(item.category)">
               {{ item.category }}
             </a>
           </li>
-   
         </ul>
       </div>
 
       <!-- Legend for All Skills -->
-      <div v-if="currentCategory === 'All Skills' & areSkillsVisible" class="legend"  >
+      <div v-if="currentCategory === 'All Skills' && areSkillsVisible" class="legend">
         <div
           v-for="(color, category) in categoryColors"
           :key="category"
@@ -54,7 +42,7 @@
       </div>
 
       <!-- All Skills Grid -->
-      <div v-if="currentCategory === 'All Skills'  & areSkillsVisible" class="skills-grid">
+      <div v-if="currentCategory === 'All Skills' && areSkillsVisible" class="skills-grid">
         <div
           v-for="(skill, index) in filteredAllSkills"
           :key="index"
@@ -70,30 +58,35 @@
         </div>
       </div>
 
-
-
       <!-- Skill Bars -->
-      <div
-        v-else
-        id="skill-container"
-        v-for="item in filteredSkills"
-        :key="item.category"
-        v-if="areSkillsVisible"
-      >
-        <div class="category-heading">
-          <h2><i :class="item.faClass"></i> {{ item.category }}</h2>
-          <h3 v-if="item.subtitle">{{ item.subtitle }}</h3>
-        </div>
+      <div v-else v-if="areSkillsVisible">
+        <div v-for="item in filteredSkills" :key="item.category" class="skill-container">
+          <div class="category-heading">
+            <h2><i :class="item.faClass"></i> {{ item.category }}</h2>
+            <h3 v-if="item.subtitle">{{ item.subtitle }}</h3>
+          </div>
 
-        <div class="skill-content">
           <div class="skillbars">
-            <div
-              class="skill"
-              v-for="skill in item.skillList"
-              :key="skill.name"
-            >
+            <div class="skill" v-for="skill in item.skillList" :key="skill.name">
               <h3 class="skill-name">{{ skill.name }}</h3>
+
+              <!-- Centered Skill Logo -->
+              <div class="skill-logo-tab">
+                <img :src="skill.logo || defaultLogo" :alt="`${skill.name} logo`" />
+              </div>
+              <span class="years">
+                {{ skill.years }} year{{ skill.years !== 1 ? 's' : '' }} / {{ getMaxYears(item) }} years
+              </span>
+
+              <!-- Years Label Positioned Correctly -->
               <div class="outer-bar">
+                
+                <!-- Inner Progress Bar (Precise Calculation) -->
+                <div
+                  class="inner-bar"
+                  :style="{ width: (skill.years / getMaxYears(item)) * 100 + '%' }"
+                ></div>
+
                 <!-- Subdivisions -->
                 <div
                   class="subdivision"
@@ -101,20 +94,13 @@
                   :key="n"
                   :style="{ left: (n / getMaxYears(item)) * 100 + '%' }"
                 ></div>
-                <div
-                  class="inner-bar"
-                  :style="{ width: (skill.years / getMaxYears(item)) * 100 + '%' }"
-                ></div>
-                <span class="years">
-                  {{ skill.years }} years / {{ getMaxYears(item) }} years
-                </span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
-    <Arrow />
   </section>
 </template>
 
@@ -122,30 +108,33 @@
 <script>
 import data from "@/data/data.js";
 import aboAkademiLogo from "@/assets/images/logos/abo-akademi-logo.gif";
-import Arrow from "../components/Arrow.vue";
+
 export default {
   name: "Skills",
   data() {
     return {
-      areSkillsVisible: false,
+      areSkillsVisible: true,
       skills: data.data.skills.categories,
       heading: data.data.main.headings.skills,
       currentCategory: "All Skills",
-      defaultMaxYears: 5, // Default maximum years if not specified
-      selectedCategories: [], // Selected categories for filtering
+      defaultMaxYears: 5,
+      selectedCategories: [],
       defaultLogo: aboAkademiLogo,
       categoryColors: {
-        "Programming Languages": "#4CAF50",
-        Frameworks: "#FF9800",
-        Technologies: "#03A9F4",
-        "Front-End": "#E91E63",
-        "Back-End": "#9C27B0",
-        Methodologies: "#009688",
-      },
+          "Programming Languages": "#4CAF50", // Green
+          Frameworks: "#FF9800", // Orange
+          Technologies: "#03A9F4", // Light Blue
+          Databases: "#673AB7", // Deep Purple
+          "Front-End": "#E91E63", // Pink
+          "Back-End": "#9C27B0", // Purple
+          "Data Science - AI": "#FFC107", // Amber
+          "DevOps & CI/CD": "#FF5722", // Deep Orange
+          Methodologies: "#009688", // Teal
+          "Operating Systems": "#795548", // Brown
+          "Version Control": "#0000FF", // Blue Gray
+          "Research & Tools": "#8BC34A" // Light Green
+        },
     };
-  },
-  components: {
-    Arrow,
   },
   computed: {
     allSkills() {
@@ -176,12 +165,10 @@ export default {
     },
     toggleCategoryFilter(category) {
       if (this.selectedCategories.includes(category)) {
-        // Remove category from selected filters
         this.selectedCategories = this.selectedCategories.filter(
           (c) => c !== category
         );
       } else {
-        // Add category to selected filters
         this.selectedCategories.push(category);
       }
     },
@@ -193,8 +180,7 @@ export default {
 </script>
 
 <style lang="scss">
-
-/* Toggle Button Style */
+/* Toggle Button */
 .toggle-button {
   display: block;
   margin: auto;
@@ -207,10 +193,10 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-bottom: 50px;
-}
 
-.toggle-button:hover {
-  background-color: #0056b3;
+  &:hover {
+    background-color: #0056b3;
+  }
 }
 
 /* General Styling */
@@ -219,9 +205,10 @@ export default {
   padding: 50px 0;
 }
 
-.skills-margin-top{
-  margin-top:-100px;
+.skills-margin-top {
+  margin-top: -100px;
 }
+
 .section-header {
   text-align: center;
   font-size: 2.5rem;
@@ -234,16 +221,17 @@ export default {
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
+
+  &.active {
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  &:hover {
+    color: #0056b3;
+  }
 }
 
-.filters .nav-item.active {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.filters .nav-item:hover {
-  color: #0056b3;
-}
 /* Legend */
 .legend {
   display: flex;
@@ -253,11 +241,6 @@ export default {
   margin-bottom: 2rem;
 }
 
-.legend-item.selected {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-color: currentColor;
-}
-
 .legend-item {
   display: flex;
   align-items: center;
@@ -265,6 +248,11 @@ export default {
   border: 1px solid transparent;
   padding: 0.5rem;
   border-radius: 8px;
+
+  &.selected {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: currentColor;
+  }
 }
 
 .legend-color {
@@ -278,52 +266,91 @@ export default {
   font-weight: bold;
 }
 
-
 /* Skill Bars */
-.skillbars .skill {
-  margin-bottom: 1rem;
+.skillbars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .skill-name {
-    font-weight: bold;
-  }
-
-  .outer-bar {
-    background: #eaeaea;
-    border-radius: 5px;
-    height: 10px;
+  .skill {
+    margin: 0.8rem 0;
+    width: 80%;
     position: relative;
-    overflow: visible;
-  }
 
-  .inner-bar {
-    height: 100%;
-    background: #007bff;
-    border-radius: 5px;
-    transition: width 0.3s ease;
-  }
+    .skill-name {
+      font-size: 0.8em;
+      letter-spacing: 0.145em;
+      text-transform: uppercase;
+    }
 
-  .subdivision {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: #fff;
-    opacity: 0.7;
-    transform: translateX(-50%);
-  }
+    .outer-bar {
+      height: 0.75em;
+      margin-top: 1em;
+      background: #333;
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+    }
 
-  .years {
-    position: absolute;
-    top: -20px;
-    right: 0;
-    font-size: 0.8rem;
-    color: #333;
+    .inner-bar {
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      animation: fillBar 1s forwards;
+      background: linear-gradient(to right, #4CAF50, #03A9F4);
+    }
+
+    .subdivision {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: #fff;
+      opacity: 0.7;
+      transform: translateX(-50%);
+    }
+
+    .years {
+      position: sticky; /* Adjust to align with bars */
+      left: 94%;
+      transform: translateX(-50%); /* Center the text */
+      font-size: 1rem;
+      color: #333;
+      white-space: nowrap;
+    }
   }
+}
+
+/* Skill Levels */
+[class*="level--"] {
+  background: linear-gradient(to right, #FF9800, #4CAF50);
+}
+
+@for $i from 1 through 10 {
+  $width: $i * 10;
+  .level-#{$width} {
+    width: $width * 1%;
+  }
+}
+
+.skill-logo-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Increase size if needed */
+  height: 50px;
+  margin: 0 auto; /* Ensures centering */
+}
+
+.skill-logo-tab img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 
 
-/* Skills Grid */
 /* Skills Grid */
 .skills-grid {
   display: grid;
@@ -370,7 +397,11 @@ export default {
       color: #555;
     }
   }
+}
 
-  
+@keyframes fillBar {
+  to {
+    transform: scaleX(1);
+  }
 }
 </style>

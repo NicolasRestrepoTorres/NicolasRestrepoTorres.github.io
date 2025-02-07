@@ -33,7 +33,7 @@
       </div>
     </nav>
     <Banner />
-    <Arrow />
+
   </header>
 </template>
 

@@ -7,7 +7,7 @@
       <h2 class="company">{{ item.company }}</h2>
       <p class="position">{{ item.position }}</p>
       <p class="duration-location">
-        <span class="duration">{{ item.startDate }} – {{ item.endDate }}</span>
+        <span class="duration">{{ item.startDate }} — {{ item.endDate }}</span>
         <span class="location">
           <span v-if="item.locationCountry" :class="['flag-icon', `flag-icon-${item.locationCountry.toLowerCase()}`]" class="flag-icon"></span>
           {{ item.location }}

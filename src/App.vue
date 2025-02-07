@@ -1,55 +1,47 @@
 <template>
   <div id="app">
-    <!-- Header -->
     <Header />
 
-    <!-- Main Content -->
     <main>
-      <!-- About Section -->
       <section id="about">
         <About />
+
       </section>
 
-      <!-- Education Section -->
       <section id="education">
-        <EducationSection/>
+        <EducationSection />
+
       </section>
-      
-      <!-- Experience Section -->
+
       <section id="experience">
         <ExperienceSection
-        :experiences="experiences"
-        sectionTitle="Professional Experience"
+          :experiences="experiences"
+          sectionTitle="Professional Experience"
         />
+ 
       </section>
 
-      <!-- Skills Section -->
       <section id="skills">
         <Skills />
+
       </section>
-      
-      
-      <!-- Portfolio Section -->
+
       <section id="portfolio">
         <Portfolio />
+
       </section>
-      <!-- Projects Section -->
+
       <section id="project">
         <ExperienceSection
-        :experiences="projects"
-        sectionTitle="Major School Projects"
+          :experiences="projects"
+          sectionTitle="Major School Projects"
         />
+    
       </section>
     </main>
-    
-
-    <!-- Footer -->
+    <!-- Floating Arrow Component -->
+    <Arrow />
     <Footer />
-
-    <!-- Smooth Scroll Arrow -->
-    <footer>
-      <a href="#about" class="arrow-icon">&#x2193;</a>
-    </footer>
   </div>
 </template>
 
@@ -68,6 +60,7 @@ import EducationSection from "@/components/EducationSection.vue";
 import ExperienceSection from "@/components/ExperienceSection.vue";
 import ContactSection from "@/components/ContactSection.vue";
 import ExperienceItem from "@/components/ExperienceItem.vue";
+import Arrow from "@/components/Arrow.vue";
 
 // Import Datasets
 import data from "@/data/data.js";
@@ -84,7 +77,8 @@ export default {
     EducationSection,
     ExperienceSection,
     ContactSection,
-    ExperienceItem
+    ExperienceItem,
+    Arrow,
   },
   data() {
     return {
@@ -106,5 +100,7 @@ export default {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+
 
 </style>

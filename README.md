@@ -1,4 +1,4 @@
-# Nicolas Restrepo Torres — Personal Website
+# Nicolas Restrepo Torres
 
 This repository contains the source code for my personal portfolio website, built with **Vue.js** and designed to showcase my professional background, technical expertise, and academic work.
 

@@ -133,67 +133,79 @@ export default {
     return {
       viewMode: "all",
       searchQuery: "",
-      selectedYear: new Date().getFullYear().toString(),
+      selectedYear: "",
     };
   },
-  mounted() {
-    console.log("Received props:", this.sectionTitle, this.experiences);
+mounted() {
+  console.log("Received props:", this.sectionTitle, this.experiences);
+  if (this.years.length > 0) {
+    this.selectedYear = this.years[0];
+  }
+},
+computed: {
+  // Filter experiences based on search query or selected skill
+  filteredExperiences() {
+    if (!this.searchQuery || !this.experiences) return this.sortedChronology;
+    const query = this.searchQuery.toLowerCase();
+    return this.experiences.filter((experience) =>
+      experience.skills.some((skill) => skill.toLowerCase().includes(query))
+    );
   },
-  computed: {
-    // Filter experiences based on search query or selected skill
-    filteredExperiences() {
-      if (!this.searchQuery || !this.experiences) return this.sortedChronology;
-      const query = this.searchQuery.toLowerCase();
-      return this.experiences.filter((experience) =>
-        experience.skills.some((skill) => skill.toLowerCase().includes(query))
-      );
-    },
 
-    // Extract unique years for the "By Year" tab
-    years() {
-      if (!this.experiences) return [];
-      return [
-        ...new Set(this.experiences.map((experience) => experience.year)),
-      ].sort((a, b) => b - a);
-    },
+  // ✅ Normalize and extract unique years for "By Year" tab
+  years() {
+    if (!this.experiences) return [];
+    const allYears = this.experiences.flatMap((exp) =>
+      Array.isArray(exp.year) ? exp.year : [exp.year]
+    );
+    // Keep only valid numbers or numeric strings, remove duplicates
+    return [...new Set(allYears.map((y) => String(y)))].sort((a, b) => b - a);
+  },
 
-    // Group experiences by year for the "By Year" tab
-    experiencesByYear() {
-      if (!this.experiences) return {};
-      return Object.fromEntries(
-        Object.entries(
-          this.experiences.reduce((acc, exp) => {
-            if (!acc[exp.year]) acc[exp.year] = [];
-            acc[exp.year].push(exp);
-            return acc;
-          }, {})
-        ).sort(([yearA], [yearB]) => yearB - yearA) // Sort years in descending order
-      );
-    },
+  // ✅ Group experiences by year (handles arrays)
+  experiencesByYear() {
+    if (!this.experiences) return {};
 
+    const grouped = {};
 
-    // Sort experiences chronologically for the "All" tab
-    sortedChronology() {
-      if (!this.experiences) return [];
-      return [...this.experiences].sort((a, b) => {
-        const dateA = new Date(a.endDate === "Present" ? new Date() : a.endDate);
-        const dateB = new Date(b.endDate === "Present" ? new Date() : b.endDate);
-        return dateB - dateA; // Sort descending by end date
+    this.experiences.forEach((exp) => {
+      const years = Array.isArray(exp.year) ? exp.year : [exp.year];
+      years.forEach((year) => {
+        const y = String(year);
+        if (!grouped[y]) grouped[y] = [];
+        grouped[y].push(exp);
       });
-    },
+    });
+
+    // Sort years descending
+    return Object.fromEntries(
+      Object.entries(grouped).sort(([a], [b]) => b - a)
+    );
   },
+
+  // ✅ Sort chronologically (based on endDate)
+  sortedChronology() {
+    if (!this.experiences) return [];
+    return [...this.experiences].sort((a, b) => {
+      const dateA = new Date(a.endDate === "Present" ? new Date() : a.endDate);
+      const dateB = new Date(b.endDate === "Present" ? new Date() : b.endDate);
+      return dateB - dateA; // Sort descending
+    });
+  },
+},
+
   methods: {
     setViewMode(mode) {
       this.viewMode = mode;
-      if (mode !== "year") {
-        this.selectedYear = ""; // Reset year selection if not in year mode
-      } else{
+      if (mode === "year" && this.years.length > 0) {
         this.selectedYear = this.years[0];
+      } else if (mode !== "year") {
+        this.selectedYear = "";
       }
     },
     setFilter(skill) {
-      this.viewMode = "filter"; // Ensure filter view
-      this.searchQuery = skill; // Populate the search bar with selected skill
+      this.viewMode = "filter";
+      this.searchQuery = skill;
     },
   },
 };

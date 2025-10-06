@@ -9,6 +9,7 @@ import tuhhLogo from "@/assets/images/logos/tuhh-logo.png";
 import veciLogo from "@/assets/images/logos/veci-logo.webp";
 import empresasCruzLogo from "@/assets/images/logos/empresas-cruz-logo.jpeg";
 import edissLogo from "@/assets/images/logos/ediss-logo.png";
+import nordeaLogo from "@/assets/images/logos/nordea-logo.webp";
 
 import logos from "@/data/logos.js"; // Import dynamically loaded logos
 
@@ -18,18 +19,34 @@ export default {
     
     experiences: [ 
     {
+      company: "Nordea Bank Oyj",
+      position: "Graduate",
+      location: "Helsinki, Finland",
+      locationCountry: "fi",
+      startDate: "September 2025",
+      endDate: "present",
+      tasks: [
+        "Working as a first rotation in Big Data and Analytics.",
+      ],
+      logo: nordeaLogo,
+      year: "2025",
+      skills: ["Big Data", "Soft skills", "Banking"],
+      type: "Big Data",
+    },
+
+    {
       company: "Åbo Akademi University",
       position: "Research Assistant",
       location: "Turku, Finland",
       locationCountry: "fi",
       startDate: "October 2024",
-      endDate: "Present",
+      endDate: "May 2025",
       tasks: [
         "Researching automatization of co-simulation Simulink projects through Functional Mock-up Units (FMUs).",
         "Exploring ubiquitous integration of automation logic, enabling model exchange HVAC systems and other complex scenarios.",
       ],
       logo: aboAkademiLogo,
-      year: "2024",
+      year: ["2024", "2025"],
       skills: ["MATLAB", "Simulink", "Simscape", "Research"],
       type: "Research",
     },
@@ -111,7 +128,7 @@ export default {
         "Implemented unit tests in Jenkins pipelines for Dockerized microservices architecture with SonarQube assessments.",
       ],
       logo: puntoredLogo,
-      year: "2021",
+      year: ["2020", "2021"],
       skills: ["Ruby on Rails", "Nuxt.js", "Test Driven Development (TDD)",  "Rest API", "Software Architecture"],
       type: "Software Engineering",
     },
@@ -192,7 +209,7 @@ export default {
         "Designed integration and functionality tests with Test-Driven Development (TDD).",
       ],
       logo: nacionalLogo,
-      year: "2018",
+      year: ["2017", "2018"],
       skills: ["Ruby on Rails", "Vue.js", "TDD"],
       type: "Software Engineering",
     },
@@ -205,7 +222,7 @@ export default {
         locationCountry: "fi", // Finland flag
         startDate: "August 2022",
         endDate: "May 2023",
-        year: "2022",
+        year: ["2022", "2023"],
         logo: aboAkademiLogo,
         tasks: [
           "A research project to generate, design, and implement a Test Effort Estimation (TEE) system that could automatically approximate how much effort is needed to complete testing in a project enhanced with Machine Learning (ML-TEE).",
@@ -485,7 +502,7 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
                 "items": [
                   { "title": "Spanish", "description": "Native", "second_description": "Proficient", "flag": "co" },
                   { "title": "English", "description": "C1 – TOEFL: 104/120", "second_description": "Fluent", "flag": "gb"  },
-                  { "title": "German", "description": "B2 – TestDaF 4/5", "second_description": "Conversational", "flag": "de"},
+                  { "title": "German", "description": "B2 – TestDaF 4/5", "second_description": "Conversational", "flag": "at"},
                   { "title": "Italian", "description": "Intermediate", "second_description": "" , "flag": "it" },
                   { "title": "Finnish", "description": "Beginner", "second_description": "", "flag": "fi"  }
                 ]
@@ -561,7 +578,7 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
           "text": "Feel free to reach out for collaborations or opportunities!",
           "formTitle": "Get in Touch",
           "formEndPoint": "",
-          "city": "Turku, Finland",
+          "city": "Helsinki, Finland",
           "email": "nrestrepotorres@gmail.com",
           "phone": "+46 76 96 36 253",
           "resumeLink": "https://www.linkedin.com/in/nrestrepot/",
@@ -657,8 +674,8 @@ Professionally, I’ve applied large language models (LLMs) like BERT to solve r
             startDate: "August 2014",
             endDate: "October 2020",
             description:
-              "Bachelor in Computer Science. 203 colombian credits (approximately 460 ECTS)",
-            skills: ["Software Engineerin", "Algorithm Design", "Systems Thinking"],
+              "Bachelor in Computer Science. 203 colombian credits (approximately 350 ECTS)",
+            skills: ["Software Engineering", "Algorithm Design", "Systems Thinking"],
             courses: ["Software Architecture" , "Operating Systems", "Algorithms", "Machine Learning"],
             logo: nacionalLogo,
             type: "bachelor",

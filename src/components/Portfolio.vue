@@ -112,13 +112,6 @@ export default {
   methods: {
     setTab(tabKey) {
       this.currentTab = tabKey;
-    },
-    getImageUrl(imageName) {
-      try {
-        return require(`@/assets/images/profile/${imageName}`);
-      } catch (e) {
-        return this.fallbackImage;
-      }
     }
   }
 };
